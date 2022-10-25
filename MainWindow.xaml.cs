@@ -50,7 +50,7 @@ namespace mainapp
         private void BarMain_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
 
-            testtext.Text = ((sidebarclass)BarMain.SelectedItem).name + '_' + ((sidebarclass)BarMain.SelectedItem)._id;
+            testtext.Text = ((sidebarclass)BarMain.SelectedItem).name + '_' + ((sidebarclass)BarMain.SelectedItem)._id + "____" + TIMES.DisplayTime.TimeOfDay;
 
         }
     }

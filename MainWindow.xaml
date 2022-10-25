@@ -18,7 +18,7 @@
     </Window.Resources>
     <Grid Margin="0,0,0,0">
         <Grid x:Name="maingrid"/>
-        <hc:ListClock />
+        <hc:ListClock x:Name="TIMES" DisplayTime="00:00:00" SelectedTime="2022-10-26" />
         <hc:Drawer  x:Name="Sidebar" Dock="Left" ShowMode="Push" >
             <Border Background="{DynamicResource RegionBrush}" Width="300" BorderThickness="0,1,0,0" BorderBrush="{DynamicResource BorderBrush}">
                 <ListBox x:Name="BarMain" SelectionMode="Single" SelectedIndex="0" ItemsSource="{Binding sidebarlist}" SelectionChanged="BarMain_SelectionChanged">
