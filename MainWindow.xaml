@@ -9,27 +9,26 @@
         AllowsTransparency="True"
         ContextMenu="{DynamicResource right}"
         mc:Ignorable="d"
-        Title="MainWindow" Height="536.4" Width="868.2" Icon="Resources/RR.ico">
+        Title="MainWindow" Height="536.4" Width="868.2" Icon="Resources/RR.ico" HorizontalContentAlignment="Center" ResizeMode="NoResize" Topmost="True" WindowStartupLocation="CenterScreen" VerticalContentAlignment="Center" WindowState="Maximized">
     <Window.Resources>
         <ContextMenu x:Key="right">
             <MenuItem x:Name="close" Header="退出" Click="close_Click"/>
+            <MenuItem Header="普通化" Click="MenuItem_Click"/>
+            <MenuItem Header="最大化" Click="MenuItem_Click_1"/>
             <MenuItem x:Name="mainD" Header="打开界面"  Click="mainD_Click"/>
         </ContextMenu>
     </Window.Resources>
     <Grid Margin="0,0,0,0">
-        <Grid x:Name="maingrid"/>
-        <hc:ListClock x:Name="TIMES" DisplayTime="00:00:00" SelectedTime="2022-10-26" />
+        <Border Background="Transparent" >
+            <Grid x:Name="maingrid" HorizontalAlignment="Center" VerticalAlignment="Center">
+                
+            </Grid>
+        </Border>
+       
         <hc:Drawer  x:Name="Sidebar" Dock="Left" ShowMode="Push" >
             <Border Background="{DynamicResource RegionBrush}" Width="300" BorderThickness="0,1,0,0" BorderBrush="{DynamicResource BorderBrush}">
-                <ListBox x:Name="BarMain" SelectionMode="Single" SelectedIndex="0" ItemsSource="{Binding sidebarlist}" SelectionChanged="BarMain_SelectionChanged">
+                <ListBox x:Name="BarMain" SelectionMode="Single" SelectedIndex="-1" ItemsSource="{Binding sidebarlist}" SelectionChanged="BarMain_SelectionChanged">
 
-
-                    <hc:Interaction.Triggers>
-                        <hc:EventTrigger EventName="SelectionChanged">
-                            <hc:InvokeCommandAction Command="{Binding SelectionChangedCmd}"
-                             CommandParameter="{Binding ElementName=BarMain}" />
-                        </hc:EventTrigger>
-                    </hc:Interaction.Triggers>
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel>
@@ -40,6 +39,5 @@
                 </ListBox>
             </Border>
         </hc:Drawer>
-        <TextBlock x:Name="testtext" HorizontalAlignment="Left" Margin="662,65,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="90" Width="90"/>
     </Grid>
 </Window>
