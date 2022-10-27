@@ -5,9 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:mainapp.Sidebar"
              xmlns:hc="https://handyorg.github.io/handycontrol"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" HorizontalAlignment="Center" VerticalAlignment="Center">
-    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+             mc:Ignorable="d" HorizontalAlignment="Center" VerticalAlignment="Center">
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Background="#FFD69292" Opacity="1">
         <hc:ListClock Margin="45,41,478,179.6" x:Name="TIMES" DisplayTime="00:00:00" SelectedTime="00:00:00" />
         <Button Content="Button" HorizontalAlignment="Left" Margin="503,98,0,0" VerticalAlignment="Top" Width="75"/>
     </Grid>
