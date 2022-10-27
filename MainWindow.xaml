@@ -18,16 +18,19 @@
             <MenuItem x:Name="mainD" Header="打开界面"  Click="mainD_Click"/>
         </ContextMenu>
     </Window.Resources>
+    <Window.Background>
+        <SolidColorBrush Opacity="0.5" Color="White"/>
+    </Window.Background>
     <Grid Margin="0,0,0,0">
         <Border Background="Transparent" >
-            <Grid x:Name="maingrid" HorizontalAlignment="Center" VerticalAlignment="Center">
-                
+            <Grid x:Name="maingrid" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent">
+               
             </Grid>
         </Border>
        
         <hc:Drawer  x:Name="Sidebar" Dock="Left" ShowMode="Push" >
             <Border Background="{DynamicResource RegionBrush}" Width="300" BorderThickness="0,1,0,0" BorderBrush="{DynamicResource BorderBrush}">
-                <ListBox x:Name="BarMain" SelectionMode="Single" SelectedIndex="-1" ItemsSource="{Binding sidebarlist}" SelectionChanged="BarMain_SelectionChanged">
+                <ListBox x:Name="BarMain" SelectionMode="Single" SelectedIndex="0" ItemsSource="{Binding sidebarlist}" SelectionChanged="BarMain_SelectionChanged">
 
                     <ListBox.ItemTemplate>
                         <DataTemplate>
