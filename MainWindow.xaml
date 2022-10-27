@@ -9,7 +9,8 @@
         AllowsTransparency="True"
         ContextMenu="{DynamicResource right}"
         mc:Ignorable="d"
-        Title="MainWindow" Icon="Resources/RR.ico" HorizontalContentAlignment="Center" ResizeMode="NoResize" Topmost="True" WindowStartupLocation="Manual" VerticalContentAlignment="Center" WindowState="Maximized" KeyDown="Window_KeyDown" MouseMove="Window_MouseMove" MouseLeftButtonDown="Window_MouseLeftButtonDown" Width="{Binding ActualWidth, ElementName=maingrid, Mode=Default, NotifyOnTargetUpdated=True, NotifyOnSourceUpdated=True}" Height="{Binding ActualHeight, ElementName=maingrid, Mode=OneWay, NotifyOnTargetUpdated=True, NotifyOnSourceUpdated=True}">
+        Title="MainWindow" Icon="Resources/RR.ico" HorizontalContentAlignment="Center" WindowStartupLocation="CenterScreen" VerticalContentAlignment="Center" KeyDown="Window_KeyDown" MouseMove="Window_MouseMove" MouseLeftButtonDown="Window_MouseLeftButtonDown" ResizeMode="NoResize" 
+        HorizontalAlignment="Center" VerticalAlignment="Center" SizeToContent="WidthAndHeight" >
     <Window.Resources>
         <ContextMenu x:Key="right">
             <MenuItem x:Name="close" Header="退出" Click="Close_Click"/>
@@ -21,9 +22,9 @@
     <Window.Background>
         <SolidColorBrush Opacity="0.5" Color="White"/>
     </Window.Background>
-    <Grid x:Name="grid" Margin="0,0,0,0" Width="{Binding ActualWidth, ElementName=maingrid, Mode=Default, NotifyOnTargetUpdated=True, NotifyOnSourceUpdated=True}" Height="{Binding ActualHeight, ElementName=maingrid, Mode=OneWay, NotifyOnTargetUpdated=True, NotifyOnSourceUpdated=True}">
-        <Grid x:Name="maingrid" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Image Source="Resources/RR.ico" />
+    <Grid x:Name="grid" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="{Binding Width, ElementName=maingrid}" Height="{Binding Height, ElementName=maingrid}">
+        <Grid x:Name="maingrid" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#FF8C7B7B" SizeChanged="maingrid_SizeChanged" >
+            <Image Source="Resources/RR.ico" Width="100" />
         </Grid>
 
         <hc:Drawer  x:Name="Sidebar" Dock="Left" ShowMode="Push" >

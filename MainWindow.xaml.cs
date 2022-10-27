@@ -53,6 +53,7 @@ namespace mainapp
             Sidebar.IsOpen = true;
         }
 
+        private bool mainId =false;
         private void BarMain_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             if (((sidebarclass)BarMain.SelectedItem) == null)
@@ -63,6 +64,11 @@ namespace mainapp
             if (((sidebarclass)BarMain.SelectedItem)._id == 10000)
             {
                 maingrid.Children.Add(new Sidebar.listclock());
+                mainId = true;
+            }
+            if (!mainId)
+            {
+                maingrid.Children.Add(new Sidebar.None());
             }
             //testtext.Text = ((sidebarclass)BarMain.SelectedItem).name + '_' + ((sidebarclass)BarMain.SelectedItem)._id + "____" + TIMES.DisplayTime.TimeOfDay;
 
@@ -72,16 +78,19 @@ namespace mainapp
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
+            grid.Height = maingrid.Height;
             Application.Current.MainWindow.WindowState = WindowState.Normal;
             Application.Current.MainWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             Application.Current.MainWindow.Topmost = false;
             mainWindos.Top = (SystemParameters.FullPrimaryScreenHeight - mainWindos.Height) / 2;
             mainWindos.Left = (SystemParameters.FullPrimaryScreenWidth - mainWindos.Width) / 2;
+            Application.Current.MainWindow.SizeToContent = SizeToContent.WidthAndHeight;
 
         }
 
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
         {
+            Application.Current.MainWindow.SizeToContent = SizeToContent.Manual;
             Application.Current.MainWindow.WindowState = WindowState.Maximized;
             Application.Current.MainWindow.Topmost = true;
         }
@@ -116,8 +125,8 @@ namespace mainapp
 
         private void BarMain_MouseLeave(object sender, MouseEventArgs e)
         {
-            Thread thread = new Thread(new ParameterizedThreadStart(openclose));
-            thread.Start(500);
+            //Thread thread = new Thread(new ParameterizedThreadStart(openclose));
+            //thread.Start(500);
             //Sidebar.IsOpen = false;
         }
 
@@ -129,6 +138,15 @@ namespace mainapp
                 Sidebar.IsOpen = false;
             }));
             //bg.Dispatcher.Invoke(new Action(() => { bg.Visibility = Visibility.Hidden; }));
+        }
+
+        private void maingrid_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            if (maingrid.Height ==double.NaN)
+            {
+                Application.Current.MainWindow.Height = maingrid.Height;
+            }
+            
         }
     }
 }
