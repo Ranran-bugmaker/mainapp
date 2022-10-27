@@ -1,5 +1,4 @@
-﻿using Base_Class;
-using mainappDLL;
+﻿using mainapp.Base_Class;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -27,8 +26,10 @@ namespace mainapp
 
         public void sidebar_Init()
         {
-            listbar listbar = new listbar();
-            sidebarlist = listbar.GetList;
+            Lisbar a = new Lisbar();
+            sidebarlist = a.GetList();
+            //listbar listbar = new listbar();
+            //sidebarlist = listbar.GetList;
             //Random ran = new Random();
             //sidebarlist = new List<sidebarclass>();
 
@@ -111,6 +112,23 @@ namespace mainapp
                 //e.d
                 DragMove();
             }
+        }
+
+        private void BarMain_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Thread thread = new Thread(new ParameterizedThreadStart(openclose));
+            thread.Start(500);
+            //Sidebar.IsOpen = false;
+        }
+
+        private void openclose(object obj)
+        {
+            Thread.Sleep(Convert.ToInt32(obj));
+
+            Sidebar.Dispatcher.Invoke(new Action(() =>{
+                Sidebar.IsOpen = false;
+            }));
+            //bg.Dispatcher.Invoke(new Action(() => { bg.Visibility = Visibility.Hidden; }));
         }
     }
 }

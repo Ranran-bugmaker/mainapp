@@ -4,12 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:hc="https://handyorg.github.io/handycontrol"
-        xmlns:Base_Class="clr-namespace:mainapp.Base_Class" x:Name="mainWindos" x:Class="mainapp.MainWindow"
+        xmlns:Base_Class="clr-namespace:mainapp.Base_Class" xmlns:Sidebar="clr-namespace:mainapp.Sidebar" x:Name="mainWindos" x:Class="mainapp.MainWindow"
         WindowStyle="None"
         AllowsTransparency="True"
         ContextMenu="{DynamicResource right}"
         mc:Ignorable="d"
-        Title="MainWindow" Icon="Resources/RR.ico" HorizontalContentAlignment="Center" ResizeMode="NoResize" Topmost="True" WindowStartupLocation="Manual" VerticalContentAlignment="Center" WindowState="Maximized" KeyDown="Window_KeyDown" MouseMove="Window_MouseMove" MouseLeftButtonDown="Window_MouseLeftButtonDown" Width="{Binding ActualWidth, ElementName=maingrid, Mode=OneWay}" Height="{Binding ActualHeight, ElementName=grid, Mode=OneWay}">
+        Title="MainWindow" Icon="Resources/RR.ico" HorizontalContentAlignment="Center" ResizeMode="NoResize" Topmost="True" WindowStartupLocation="Manual" VerticalContentAlignment="Center" WindowState="Maximized" KeyDown="Window_KeyDown" MouseMove="Window_MouseMove" MouseLeftButtonDown="Window_MouseLeftButtonDown" Width="{Binding ActualWidth, ElementName=maingrid, Mode=Default, NotifyOnTargetUpdated=True, NotifyOnSourceUpdated=True}" Height="{Binding ActualHeight, ElementName=maingrid, Mode=OneWay, NotifyOnTargetUpdated=True, NotifyOnSourceUpdated=True}">
     <Window.Resources>
         <ContextMenu x:Key="right">
             <MenuItem x:Name="close" Header="退出" Click="Close_Click"/>
@@ -21,13 +21,14 @@
     <Window.Background>
         <SolidColorBrush Opacity="0.5" Color="White"/>
     </Window.Background>
-    <Grid x:Name="grid" Margin="0,0,0,0" Width="{Binding ActualWidth, ElementName=maingrid, Mode=OneWay}" Height="{Binding ActualHeight, ElementName=maingrid, Mode=OneWay}">
-        <Grid x:Name="maingrid" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent">
+    <Grid x:Name="grid" Margin="0,0,0,0" Width="{Binding ActualWidth, ElementName=maingrid, Mode=Default, NotifyOnTargetUpdated=True, NotifyOnSourceUpdated=True}" Height="{Binding ActualHeight, ElementName=maingrid, Mode=OneWay, NotifyOnTargetUpdated=True, NotifyOnSourceUpdated=True}">
+        <Grid x:Name="maingrid" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Image Source="Resources/RR.ico" />
         </Grid>
 
         <hc:Drawer  x:Name="Sidebar" Dock="Left" ShowMode="Push" >
             <Border Background="{DynamicResource RegionBrush}" Width="300" BorderThickness="0,1,0,0" BorderBrush="{DynamicResource BorderBrush}">
-                <ListBox x:Name="BarMain" SelectionMode="Single" SelectedIndex="0"  SelectionChanged="BarMain_SelectionChanged">
+                <ListBox x:Name="BarMain" SelectionMode="Single" SelectedIndex="-1"  SelectionChanged="BarMain_SelectionChanged" MouseLeave="BarMain_MouseLeave">
 
                     <ListBox.ItemTemplate>
                         <DataTemplate>
@@ -39,5 +40,6 @@
                 </ListBox>
             </Border>
         </hc:Drawer>
+        
     </Grid>
 </Window>

@@ -61,6 +61,7 @@ namespace mainapp
     {
         public App()
         {
+            //AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve001;
             InitializeComponent();
         }
 

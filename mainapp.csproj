@@ -127,14 +127,9 @@
   <ItemGroup>
     <Resource Include="Resources\RR.ico" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <None Include="libs\HandyControl.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="mainappDLL\mainappDLL.csproj">
-      <Project>{8326937d-13ad-479a-a667-924dd6e1aa22}</Project>
-      <Name>mainappDLL</Name>
-    </ProjectReference>
+    <EmbeddedResource Include="libs\HandyControl.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
