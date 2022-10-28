@@ -23,12 +23,9 @@
         <SolidColorBrush Opacity="0.5" Color="White"/>
     </Window.Background>
     <Grid x:Name="grid" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="{Binding Width, ElementName=maingrid}" Height="{Binding Height, ElementName=maingrid}">
-        <Grid x:Name="maingrid" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#FF8C7B7B" SizeChanged="maingrid_SizeChanged" >
-            <Image Source="Resources/RR.ico" Width="100" />
-            <TextBlock x:Name="movbe" HorizontalAlignment="Left" Margin="-21,-78,-19.6,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="52" Width="195"/>
-        </Grid>
+        <Grid x:Name="maingrid" HorizontalAlignment="Center" VerticalAlignment="Center" />
 
-        <hc:Drawer  x:Name="Sidebar" Dock="Left" ShowMode="Push" >
+        <hc:Drawer  x:Name="Sidebars" Dock="Left" ShowMode="Push" >
             <Border Background="{DynamicResource RegionBrush}" Width="300" BorderThickness="0,1,0,0" BorderBrush="{DynamicResource BorderBrush}">
                 <Grid>
                     <Grid.RowDefinitions>
@@ -38,7 +35,7 @@
                     <Grid x:Name="grid1">
                         <hc:SearchBar VerticalAlignment="Center" />
                     </Grid>
-                    <ListBox Grid.Row="1" x:Name="BarMain" SelectionMode="Single" SelectedIndex="-1"  SelectionChanged="BarMain_SelectionChanged" MouseLeave="BarMain_MouseLeave">
+                    <ListBox Grid.Row="1" x:Name="BarMain" SelectionMode="Single" SelectedIndex="0"  SelectionChanged="BarMain_SelectionChanged" MouseLeave="BarMain_MouseLeave">
 
                         <ListBox.ItemTemplate>
                             <DataTemplate>

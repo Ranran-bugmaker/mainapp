@@ -22,6 +22,11 @@ namespace mainapp
             InitializeComponent();
 
             sidebar_Init();
+            if (maingrid.Children.Count<0)
+            {
+                maingrid.Children.Add(new Sidebar.HomePage());
+            }
+            //maingrid.Children.Add(new Sidebar.HomePage());
         }
 
         public void sidebar_Init()
@@ -50,7 +55,7 @@ namespace mainapp
 
         private void mainD_Click(object sender, RoutedEventArgs e)
         {
-            Sidebar.IsOpen = true;
+            Sidebars.IsOpen = true;
         }
 
         private bool mainId =false;
@@ -109,12 +114,17 @@ namespace mainapp
             }
         }
 
+        public static string pos = "";
         private void Window_MouseMove(object sender, MouseEventArgs e)
         {
-            movbe.Text = e.GetPosition(null).ToString();
-            if (e.GetPosition(null).X < 50)
+            pos = e.GetPosition(null).ToString();
+            //movbe.Text = e.GetPosition(null).ToString();
+            if (mainWindos.WindowState == WindowState.Maximized)
             {
-                Sidebar.IsOpen = true;
+                if (e.GetPosition(grid).X < 50)
+                {
+                    Sidebars.IsOpen = true;
+                }
             }
         }
 
@@ -138,8 +148,8 @@ namespace mainapp
         {
             Thread.Sleep(Convert.ToInt32(obj));
 
-            Sidebar.Dispatcher.Invoke(new Action(() =>{
-                Sidebar.IsOpen = false;
+            Sidebars.Dispatcher.Invoke(new Action(() =>{
+                Sidebars.IsOpen = false;
             }));
             //bg.Dispatcher.Invoke(new Action(() => { bg.Visibility = Visibility.Hidden; }));
         }
@@ -152,5 +162,6 @@ namespace mainapp
             }
             
         }
+
     }
 }

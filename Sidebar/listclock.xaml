@@ -6,9 +6,10 @@
              xmlns:local="clr-namespace:mainapp.Sidebar"
              xmlns:hc="https://handyorg.github.io/handycontrol"
              mc:Ignorable="d" HorizontalAlignment="Center" VerticalAlignment="Center">
-    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Background="#FFD69292" Opacity="1">
-        <hc:ListClock Margin="61,70,452.8,145.8" x:Name="TIMES" DisplayTime="00:00:00" SelectedTime="00:00:00" MouseLeave="TIMES_MouseLeave" VerticalAlignment="Center" HorizontalAlignment="Center" Height="205" Width="219" />
-        <Button Content="Button" HorizontalAlignment="Left" Margin="503,98,0,0" VerticalAlignment="Top" Width="75"/>
-        <TextBlock x:Name="longtimes" HorizontalAlignment="Left" Margin="480,271,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Background="White" Height="57" Width="143"/>
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Background="#FFD69292" Opacity="1" Height="330" Width="642">
+        <hc:ListClock Margin="61,50,362,75" x:Name="TIMES" DisplayTime="0:10:00" SelectedTime="00:10:00" MouseLeave="TIMES_MouseLeave" VerticalAlignment="Center" HorizontalAlignment="Center" Height="205" Width="219" />
+        <Button Content="开始计划关机任务" HorizontalAlignment="Left" Margin="398,52,0,0" VerticalAlignment="Top" Width="175" Click="Button_Click" Height="47"/>
+        <Button Content="取消计划关机" HorizontalAlignment="Left" Margin="398,134,0,0" VerticalAlignment="Top" Width="175" Click="Button_Click_1" Height="47"/>
+        <Button Content="重启" HorizontalAlignment="Left" Margin="398,208,0,0" VerticalAlignment="Top" Width="175"  Height="47" Click="Button_Click_2"/>
     </Grid>
 </UserControl>
