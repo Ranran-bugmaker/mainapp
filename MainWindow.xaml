@@ -10,7 +10,7 @@
         ContextMenu="{DynamicResource right}"
         mc:Ignorable="d"
         Title="MainWindow" Icon="Resources/RR.ico" HorizontalContentAlignment="Center" WindowStartupLocation="CenterScreen" VerticalContentAlignment="Center" KeyDown="Window_KeyDown" MouseMove="Window_MouseMove" MouseLeftButtonDown="Window_MouseLeftButtonDown" ResizeMode="NoResize" 
-        HorizontalAlignment="Center" VerticalAlignment="Center" SizeToContent="WidthAndHeight" >
+        HorizontalAlignment="Center" VerticalAlignment="Center" WindowState="Maximized" >
     <Window.Resources>
         <ContextMenu x:Key="right">
             <MenuItem x:Name="close" Header="退出" Click="Close_Click"/>
@@ -25,22 +25,34 @@
     <Grid x:Name="grid" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="{Binding Width, ElementName=maingrid}" Height="{Binding Height, ElementName=maingrid}">
         <Grid x:Name="maingrid" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#FF8C7B7B" SizeChanged="maingrid_SizeChanged" >
             <Image Source="Resources/RR.ico" Width="100" />
+            <TextBlock x:Name="movbe" HorizontalAlignment="Left" Margin="-21,-78,-19.6,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="52" Width="195"/>
         </Grid>
 
         <hc:Drawer  x:Name="Sidebar" Dock="Left" ShowMode="Push" >
             <Border Background="{DynamicResource RegionBrush}" Width="300" BorderThickness="0,1,0,0" BorderBrush="{DynamicResource BorderBrush}">
-                <ListBox x:Name="BarMain" SelectionMode="Single" SelectedIndex="-1"  SelectionChanged="BarMain_SelectionChanged" MouseLeave="BarMain_MouseLeave">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid x:Name="grid1">
+                        <hc:SearchBar VerticalAlignment="Center" />
+                    </Grid>
+                    <ListBox Grid.Row="1" x:Name="BarMain" SelectionMode="Single" SelectedIndex="-1"  SelectionChanged="BarMain_SelectionChanged" MouseLeave="BarMain_MouseLeave">
 
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel>
-                                <TextBlock Text="{Binding name}" />
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <TextBlock Text="{Binding name}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+
+                </Grid>
             </Border>
         </hc:Drawer>
         
+
     </Grid>
 </Window>

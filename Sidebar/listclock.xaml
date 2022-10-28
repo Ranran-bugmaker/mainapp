@@ -7,7 +7,8 @@
              xmlns:hc="https://handyorg.github.io/handycontrol"
              mc:Ignorable="d" HorizontalAlignment="Center" VerticalAlignment="Center">
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Background="#FFD69292" Opacity="1">
-        <hc:ListClock Margin="45,41,478,179.6" x:Name="TIMES" DisplayTime="00:00:00" SelectedTime="00:00:00" />
+        <hc:ListClock Margin="61,70,452.8,145.8" x:Name="TIMES" DisplayTime="00:00:00" SelectedTime="00:00:00" MouseLeave="TIMES_MouseLeave" VerticalAlignment="Center" HorizontalAlignment="Center" Height="205" Width="219" />
         <Button Content="Button" HorizontalAlignment="Left" Margin="503,98,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBlock x:Name="longtimes" HorizontalAlignment="Left" Margin="480,271,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Background="White" Height="57" Width="143"/>
     </Grid>
 </UserControl>

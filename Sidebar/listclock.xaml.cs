@@ -24,5 +24,10 @@ namespace mainapp.Sidebar
         {
             InitializeComponent();
         }
+
+        private void TIMES_MouseLeave(object sender, MouseEventArgs e)
+        {
+            longtimes.Text = TIMES.DisplayTime.TimeOfDay.ToString()+"--/--"+ TIMES.DisplayTime.TimeOfDay.TotalSeconds.ToString();
+        }
     }
 }

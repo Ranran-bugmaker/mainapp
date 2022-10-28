@@ -111,7 +111,11 @@ namespace mainapp
 
         private void Window_MouseMove(object sender, MouseEventArgs e)
         {
-
+            movbe.Text = e.GetPosition(null).ToString();
+            if (e.GetPosition(null).X < 50)
+            {
+                Sidebar.IsOpen = true;
+            }
         }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
