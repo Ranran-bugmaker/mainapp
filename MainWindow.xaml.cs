@@ -58,7 +58,7 @@ namespace mainapp
             Sidebars.IsOpen = true;
         }
 
-        private bool mainId =false;
+        //private bool mainId =false;
         private void BarMain_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             if (((sidebarclass)BarMain.SelectedItem) == null)
@@ -66,15 +66,27 @@ namespace mainapp
                 return;
             }
             maingrid.Children.Clear();
-            if (((sidebarclass)BarMain.SelectedItem)._id == 10000)
+            switch (((sidebarclass)BarMain.SelectedItem)._id)
             {
-                maingrid.Children.Add(new Sidebar.listclock());
-                mainId = true;
+                case 10000:
+                    maingrid.Children.Add(new Sidebar.listclock());
+                    //mainId = true;
+                    Sidebars.IsOpen = false;
+                    break;
+                default:
+                    maingrid.Children.Add(new Sidebar.None());
+                    Sidebars.IsOpen = false;
+                    break;
             }
-            if (!mainId)
-            {
-                maingrid.Children.Add(new Sidebar.None());
-            }
+            //if (((sidebarclass)BarMain.SelectedItem)._id == 10000)
+            //{
+            //    maingrid.Children.Add(new Sidebar.listclock());
+            //    mainId = true;
+            //}
+            //if (!mainId)
+            //{
+            //    maingrid.Children.Add(new Sidebar.None());
+            //}
             //testtext.Text = ((sidebarclass)BarMain.SelectedItem).name + '_' + ((sidebarclass)BarMain.SelectedItem)._id + "____" + TIMES.DisplayTime.TimeOfDay;
 
         }
@@ -121,7 +133,7 @@ namespace mainapp
             //movbe.Text = e.GetPosition(null).ToString();
             if (mainWindos.WindowState == WindowState.Maximized)
             {
-                if (e.GetPosition(null).X < 50)
+                if (e.GetPosition(mainWindos).X < 50)
                 {
                     Sidebars.IsOpen = true;
                 }
