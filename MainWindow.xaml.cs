@@ -133,7 +133,7 @@ namespace mainapp
             //movbe.Text = e.GetPosition(null).ToString();
             if (mainWindos.WindowState == WindowState.Maximized)
             {
-                if (e.GetPosition(mainWindos).X < 50)
+                if (e.GetPosition(mainWindos).X < 10)
                 {
                     Sidebars.IsOpen = true;
                 }
